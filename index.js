@@ -130,7 +130,7 @@ OnlyIfChangedPlugin.prototype.apply = function(compiler) {
   // collect info about input dependencies to compilation
   compiler.plugin('after-compile', function(compilation, afterCompileDone) {
     // get updated mtimes of file dependencies of compilation
-    pluginContext.updateDependenciesMtimes(compilation.fileDependencies, afterCompileDone);
+    pluginContext.updateDependenciesMtimes(Array.from(compilation.fileDependencies), afterCompileDone);
   });
 
   compiler.plugin('should-emit', function() {
